@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>To My Abinaya 💍</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --pink: #f72585;
+      --wine: #7b2d42;
+      --soft-pink: #ffe0ec;
+      --white: #fff8fb;
+    }
+
+    body {
+      background: var(--white);
+      font-family: 'Lato', sans-serif;
+      color: var(--wine);
+      overflow-x: hidden;
+    }
+
+    /* ── Floating petals ── */
+    .petals-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; overflow: hidden; }
+    .petal {
+      position: absolute;
+      top: -40px;
+      font-size: 1.4rem;
+      animation: fall linear infinite;
+      opacity: 0.7;
+    }
+    @keyframes fall {
+      0%   { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+      100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+    }
+
+    /* ── Hero ── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(160deg, #7b2d42 0%, #f72585 60%, #ffe0ec 100%);
+      padding: 2rem;
+      z-index: 1;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='30' cy='30' r='1.5' fill='rgba(255,255,255,0.15)'/%3E%3C/svg%3E");
+      z-index: 0;
+    }
+    .hero > * { position: relative; z-index: 1; }
+
+    .temple-badge {
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.4);
+      color: #fff;
+      font-size: 0.78rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 50px;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 7vw, 5rem);
+      color: #fff;
+      line-height: 1.15;
+      text-shadow: 0 2px 20px rgba(123,45,66,0.4);
+    }
+    .hero h1 span { color: #ffe0ec; font-style: italic; }
+
+    .hero .subtitle {
+      margin-top: 1rem;
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      color: rgba(255,255,255,0.88);
+      font-weight: 300;
+      letter-spacing: 1px;
+    }
+
+    .scroll-hint {
+      margin-top: 2.5rem;
+      color: rgba(255,255,255,0.6);
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(8px)} }
+
+    /* ── Sections ── */
+    section {
+      position: relative;
+      z-index: 1;
+      padding: 5rem 1.5rem;
+      max-width: 780px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .section-icon { font-size: 2.8rem; margin-bottom: 1rem; }
+
+    section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      color: var(--wine);
+      margin-bottom: 1.2rem;
+    }
+
+    section p {
+      font-size: 1.05rem;
+      line-height: 1.9;
+      color: #5a2030;
+      font-weight: 300;
+    }
+
+    .divider {
+      width: 60px; height: 3px;
+      background: linear-gradient(90deg, var(--wine), var(--pink));
+      border-radius: 2px;
+      margin: 1.5rem auto;
+    }
+
+    /* ── Music note card ── */
+    .music-card {
+      background: linear-gradient(135deg, #7b2d42, #f72585);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      color: #fff;
+      margin-top: 2rem;
+      box-shadow: 0 10px 40px rgba(247,37,133,0.3);
+    }
+    .music-card .note { font-size: 3rem; margin-bottom: 0.8rem; }
+    .music-card p { color: rgba(255,255,255,0.9); font-style: italic; font-size: 1.1rem; line-height: 1.8; }
+    .music-card .song-tag {
+      display: inline-block;
+      margin-top: 1rem;
+      background: rgba(255,255,255,0.2);
+      border-radius: 50px;
+      padding: 5px 16px;
+      font-size: 0.82rem;
+      letter-spacing: 1px;
+    }
+
+    /* ── Timeline ── */
+    .timeline { text-align: left; margin-top: 2rem; }
+    .tl-item { display: flex; gap: 1.2rem; margin-bottom: 2rem; align-items: flex-start; }
+    .tl-dot {
+      min-width: 44px; height: 44px;
+      background: linear-gradient(135deg, var(--wine), var(--pink));
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+      box-shadow: 0 4px 14px rgba(247,37,133,0.3);
+      flex-shrink: 0;
+    }
+    .tl-text h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--wine); margin-bottom: 4px; }
+    .tl-text p  { font-size: 0.95rem; color: #7a3050; line-height: 1.7; }
+
+    /* ── Kalvan quote ── */
+    .kalvan-box {
+      background: var(--soft-pink);
+      border-left: 5px solid var(--pink);
+      border-radius: 12px;
+      padding: 2rem 1.8rem;
+      margin-top: 2rem;
+      text-align: left;
+    }
+    .kalvan-box blockquote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-style: italic;
+      color: var(--wine);
+      line-height: 1.8;
+    }
+    .kalvan-box cite { display: block; margin-top: 0.8rem; font-size: 0.85rem; color: var(--pink); letter-spacing: 1px; }
+
+    /* ── Big question ── */
+    .question-section {
+      background: linear-gradient(160deg, #7b2d42, #f72585);
+      padding: 6rem 1.5rem;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    .question-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 6vw, 3.8rem);
+      color: #fff;
+      line-height: 1.3;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.2);
+    }
+    .question-section p { color: rgba(255,255,255,0.85); font-size: 1.1rem; margin-top: 1rem; }
+
+    .btn-group { display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap; margin-top: 2.5rem; }
+
+    .btn-yes {
+      background: #fff;
+      color: var(--wine);
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      padding: 14px 40px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.15);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-yes:hover { transform: scale(1.07); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+
+    .btn-no {
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 14px 30px;
+      border: 2px solid #fff;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.2s;
+      position: relative;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+    }
+    .btn-no:hover { background: rgba(255,255,255,0.25); }
+
+    /* ── Yes overlay ── */
+    #yes-overlay {
+      display: none;
+      position: fixed; inset: 0;
+      background: linear-gradient(160deg, #7b2d42, #f72585);
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+    #yes-overlay.show { display: flex; animation: fadeIn 0.6s ease; }
+    @keyframes fadeIn { from{opacity:0;transform:scale(0.95)} to{opacity:1;transform:scale(1)} }
+
+    /* ── Confetti ── */
+    .confetti-piece {
+      position: fixed;
+      width: 10px; height: 14px;
+      top: -20px;
+      border-radius: 2px;
+      animation: confettiFall linear forwards;
+      z-index: 1000;
+      pointer-events: none;
+    }
+    @keyframes confettiFall {
+      0%   { transform: translateY(0) rotate(0deg) scale(1); opacity: 1; }
+      80%  { opacity: 1; }
+      100% { transform: translateY(105vh) rotate(720deg) scale(0.5); opacity: 0; }
+    }
+    #yes-overlay h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 6vw, 4rem);
+      color: #fff;
+      line-height: 1.3;
+    }
+    #yes-overlay p { color: rgba(255,255,255,0.85); font-size: 1.1rem; margin-top: 1rem; max-width: 500px; }
+    .big-ring { font-size: 5rem; margin-bottom: 1rem; animation: ringPop 0.8s ease; }
+    @keyframes ringPop { 0%{transform:scale(0) rotate(-20deg)} 70%{transform:scale(1.2) rotate(5deg)} 100%{transform:scale(1) rotate(0)} }
+
+    /* ── Mobile ── */
+    @media (max-width: 480px) {
+      .hero { padding: 2rem 1.2rem; }
+      .temple-badge { font-size: 0.68rem; letter-spacing: 1px; padding: 5px 12px; text-align: center; }
+      .hero h1 { font-size: 2rem; }
+      .hero .subtitle { font-size: 0.95rem; }
+      section { padding: 3rem 1.2rem; }
+      section h2 { font-size: 1.5rem; }
+      section p { font-size: 0.97rem; }
+      .music-card { padding: 1.8rem 1.2rem; }
+      .music-card p { font-size: 1rem; }
+      .kalvan-box { padding: 1.4rem 1.2rem; }
+      .kalvan-box blockquote { font-size: 1.05rem; }
+      .tl-text h3 { font-size: 1rem; }
+      .question-section { padding: 4rem 1.2rem; }
+      .question-section h2 { font-size: 1.8rem; }
+      .btn-group { flex-direction: column; align-items: center; gap: 1rem; }
+      .btn-yes, .btn-no { width: 100%; max-width: 300px; font-size: 1.1rem; padding: 16px 20px; }
+      #yes-overlay h1 { font-size: 1.8rem; }
+      #yes-overlay p { font-size: 1rem; }
+      .big-ring { font-size: 4rem; }
+    }
+
+    /* ── Footer ── */
+    footer {
+      position: relative; z-index: 1;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.82rem;
+      color: #c07090;
+      letter-spacing: 1px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Floating petals -->
+<div class="petals-container" id="petals"></div>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="temple-badge">🕌 Siruvapuri Murugan Temple — Where It All Began</div>
+  <h1>Hey <span>Abinaya</span>,<br/>I have something<br/>to tell you… 💍</h1>
+  <p class="subtitle">From your future Kalvan — Sriram 🤍</p>
+  <div class="scroll-hint">↓ scroll down ↓</div>
+</div>
+
+<!-- Where we met -->
+<section>
+  <div class="section-icon">🕌</div>
+  <h2>It Started at Siruvapuri</h2>
+  <div class="divider"></div>
+  <p>
+    Of all the places in this world, Lord Murugan chose <strong>Siruvapuri</strong> as the place where our paths would cross.
+    Maybe it wasn't a coincidence — maybe it was a blessing written long before we were born.
+    I walked into that temple as just another devotee… and walked out carrying you in my heart. 🙏
+  </p>
+</section>
+
+<!-- Music section -->
+<section>
+  <div class="section-icon">🎵</div>
+  <h2>Your Voice, My Favourite Song</h2>
+  <div class="divider"></div>
+  <p>
+    You sing devotional songs like you're speaking directly to God, and love songs like you already know who they're meant for.
+    Every note you hum fills a room with something I can't describe — peace, warmth, and a feeling that everything is exactly right.
+  </p>
+  <div class="music-card">
+    <div class="note">🎶</div>
+    <p>"To my future Kalvan…"<br/>— you wrote that, Abinaya.<br/>I read it and realised — <strong>that Kalvan is me.</strong></p>
+    <span class="song-tag">♪ Your devotional soul stole my heart ♪</span>
+  </div>
+</section>
+
+<!-- Why you -->
+<section>
+  <div class="section-icon">💗</div>
+  <h2>Why You, Always You</h2>
+  <div class="divider"></div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot">🩺</div>
+      <div class="tl-text">
+        <h3>You heal people for a living</h3>
+        <p>A cardio medical student who dedicates her life to keeping hearts beating — and somehow, you also keep mine racing. 💓</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot">🎵</div>
+      <div class="tl-text">
+        <h3>Your music is your soul</h3>
+        <p>Devotional songs in the morning, love songs in the evening — you carry God and love in the same breath. That's rare.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot">🌸</div>
+      <div class="tl-text">
+        <h3>Your grace, your colours</h3>
+        <p>Barbie pink, wine red, white — every colour you wear tells a story of someone who is bold, soft, and pure all at once.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot">🙏</div>
+      <div class="tl-text">
+        <h3>Your faith</h3>
+        <p>You sing for God before you sing for the world. That devotion — it's the most beautiful thing about you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Kalvan quote -->
+<section>
+  <div class="section-icon">💌</div>
+  <h2>To My Future Kalvan</h2>
+  <div class="divider"></div>
+  <p>You wrote those words not knowing I was reading them. But I was. And every single time, my heart whispered —</p>
+  <div class="kalvan-box">
+    <blockquote>
+      "Kalvan means the one who steals a girl's heart.<br/>
+      Abinaya… you stole mine first.<br/>
+      So maybe — just maybe — we're even. 😊<br/><br/>
+      I want to be your Kalvan. Officially. Forever."
+    </blockquote>
+    <cite>— Sriram, your future Kalvan 💍</cite>
+  </div>
+</section>
+
+<!-- The Big Question -->
+<div class="question-section">
+  <h2>So, Abinaya… 💍<br/>Will you be mine?</h2>
+  <p>From Siruvapuri to forever — will you walk this journey with me?</p>
+  <div class="btn-group">
+    <button class="btn-yes" onclick="sayYes()">💍 Yes, always yes!</button>
+    <button class="btn-no" id="noBtn" onmouseover="runAway()" ontouchstart="runAway()">Hmm… let me think 😅</button>
+  </div>
+</div>
+
+<!-- Yes Overlay -->
+<div id="yes-overlay">
+  <div class="big-ring">💍</div>
+  <h1>She said YES! 🎉<br/>Abinaya & Sriram 🤍</h1>
+  <p>From Siruvapuri Murugan Temple to forever — Lord Murugan himself brought you two together. May your love be as eternal as His blessings. 🙏🌸</p>
+  <p style="margin-top:1.5rem; font-size:1.4rem;">🎵 ♪ ♫ 🎶 💗 🌸 💍</p>
+</div>
+
+<footer>Made with 💗 by Sriram — for the one who wrote "To my future Kalvan"</footer>
+
+<script>
+  // Floating petals
+  const symbols = ['🌸','💗','🎵','🌹','💍','✨','🎶','🌺'];
+  const container = document.getElementById('petals');
+  for (let i = 0; i < 28; i++) {
+    const p = document.createElement('div');
+    p.className = 'petal';
+    p.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+    p.style.left = Math.random() * 100 + 'vw';
+    p.style.fontSize = (0.9 + Math.random() * 1.2) + 'rem';
+    p.style.animationDuration = (6 + Math.random() * 10) + 's';
+    p.style.animationDelay = (Math.random() * 10) + 's';
+    container.appendChild(p);
+  }
+
+  // No button runs away
+  function runAway() {
+    const btn = document.getElementById('noBtn');
+    const btnW = btn.offsetWidth || 160;
+    const btnH = btn.offsetHeight || 50;
+    const maxX = Math.max(10, window.innerWidth - btnW - 10);
+    const maxY = Math.max(10, window.innerHeight - btnH - 10);
+    btn.style.position = 'fixed';
+    btn.style.left = Math.random() * maxX + 'px';
+    btn.style.top  = Math.random() * maxY + 'px';
+    btn.style.zIndex = 100;
+    btn.style.width = 'auto';
+    btn.style.maxWidth = 'none';
+  }
+
+  // Yes button
+  function sayYes() {
+    document.getElementById('yes-overlay').classList.add('show');
+
+    // Notify Sriram via WhatsApp instantly 💍
+    const yourNumber = '91XXXXXXXXXX'; // 👈 Replace with your number e.g. 919876543210
+    const msg = encodeURIComponent('💍 Sriram... I said YES! Always yes! 🌸 — Abinaya');
+    setTimeout(() => {
+      window.open(`https://wa.me/${yourNumber}?text=${msg}`, '_blank');
+    }, 2000);
+
+    // emoji burst petals
+    for (let i = 0; i < 30; i++) {
+      const p = document.createElement('div');
+      p.className = 'petal';
+      p.textContent = ['💍','🎉','💗','🌸','✨','🎊','🌹','🎶'][Math.floor(Math.random()*8)];
+      p.style.left = Math.random() * 100 + 'vw';
+      p.style.fontSize = (1.2 + Math.random() * 1.8) + 'rem';
+      p.style.animationDuration = (2 + Math.random() * 4) + 's';
+      p.style.animationDelay = (Math.random() * 1.5) + 's';
+      container.appendChild(p);
+    }
+
+    // colourful confetti pieces
+    const colors = ['#f72585','#fff','#7b2d42','#ffb3d1','#ffd700','#ff69b4','#ffe0ec'];
+    for (let i = 0; i < 120; i++) {
+      const c = document.createElement('div');
+      c.className = 'confetti-piece';
+      c.style.left = Math.random() * 100 + 'vw';
+      c.style.background = colors[Math.floor(Math.random() * colors.length)];
+      c.style.width = (6 + Math.random() * 10) + 'px';
+      c.style.height = (8 + Math.random() * 14) + 'px';
+      c.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+      c.style.animationDuration = (2.5 + Math.random() * 3) + 's';
+      c.style.animationDelay = (Math.random() * 2) + 's';
+      document.body.appendChild(c);
+      setTimeout(() => c.remove(), 6000);
+    }
+  }
+</script>
+</body>
+</html>
